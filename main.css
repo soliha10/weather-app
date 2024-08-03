@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("./images/bg-body.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.hero-item,
+.today-degree-time-list {
+  background-color: #00000045;
+}
+
+.hero-item {
+  width: 250px;
+}
+
+.condition-pic {
+  width: 70px;
+}
+
+.contidion-info-link {
+  border-radius: 5px;
+}

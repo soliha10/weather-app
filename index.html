@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body class=" text-white">
+  <header class="site-header py-8 ">
+    <div class="container w-[1280px]  mx-auto px-5 flex items-center justify-between">
+      <strong class="site-name text-3xl font-medium">Forecast</strong>
+      <form id="search-form" class="flex items-center">
+        <input id="city-input" class="search-inp w-64 py-2 px-4 rounded-l-lg bg-orange-200 border-2 border-teal-500"
+          type="text" placeholder="Enter city name">
+        <button class="search-btn w-24 bg-teal-500 py-2 rounded-r-lg border-2 border-teal-500 font-medium"
+          type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="py-8">
+    <section class="hero">
+      <div class="container w-[1280px]  mx-auto px-5">
+        <ul id="hero-list" class="hero-list flex justify-between items-center space-x-4"></ul>
+      </div>
+    </section>
+
+    <section class="today mt-16">
+      <div class="container w-[1280px]  mx-auto px-5">
+        <div class="today-inner">
+          <h2 class="text-3xl font-medium">Today</h2>
+          <div class="today-info-wrapper border-t-2 border-teal-500 pt-8 flex items-start justify-between">
+            <div class="today-sun-detail flex flex-col items-center">
+              <img id="today-icon" class="today-pic" src="" alt="Weather icon">
+              <span class="today-sunrise">Sunrise: <time id="sunrise-time" class="text-slate-400"></time></span>
+              <span class="today-sunset">Sunset: <time id="sunset-time" class="text-slate-400"></time></span>
+            </div>
+            <div class="today-condition-detail flex flex-col items-center">
+              <span id="today-date" class="text-2xl font-medium"></span>
+              <strong id="today-degree" class="text-7xl font-medium"></strong>
+              <span id="today-condition" class="text-xl font-medium"></span>
+              <span id="today-location" class="text-slate-400 text-lg"></span>
+            </div>
+            <div class="today-more-detail-wrapper text-lg">
+              <span class="today-detail-name text-xl">More Details:</span>
+              <ul class="today-more-detail-list text-slate-400 mt-4 space-y-2">
+                <li>Wind speed: <span id="wind-speed" class="text-white font-bold"></span></li>
+                <li>Air humidity: <span id="humidity" class="text-white font-bold"></span></li>
+                <li>Pressure: <span id="pressure" class="text-white font-bold"></span></li>
+              </ul>
+            </div>
+            <ol id="hourly-forecast" class="today-degree-time-list flex space-x-4 overflow-x-auto"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="five-day mt-16">
+      <div class="container w-[1280px]  mx-auto px-5">
+        <div class="five-day-inner">
+          <h2 class="five-day-title text-3xl font-medium">5 Days Forecast</h2>
+          <div class="five-day-inner border-t-2 border-teal-500 pt-8">
+            <ol id="five-day-list" class="five-day-list flex justify-around overflow-x-auto"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <template id="hero-item-template">
+    <li class="hero-item w-[100px] flex justify-between rounded-md py-6 px-4  ">
+      <div class="county-details flex flex-col gap-y-2">
+        <span class="country-name text-lg"></span>
+        <span class="country-capital text-2xl"></span>
+        <span class="country-condition text-sm"></span>
+      </div>
+      <div class="condition-details flex flex-col items-center gap-y-2">
+        <img class="condition-pic" src="" alt="">
+        <span class="condition-degree"></span>
+        <button
+          class="contidion-info-link border-b-2  px-2 hover:bg-white hover:text-black transition duration-300">More
+          info</button>
+      </div>
+    </li>
+  </template>
+
+  <template id="hourly-item-template">
+    <li class="today-degree-time-item flex flex-col items-center gap-y-2">
+      <img class="today-time-pic" src="" alt="">
+      <span class="today-degree-time font-bold text-lg"></span>
+      <time class="today-time-degree font-medium"></time>
+    </li>
+  </template>
+
+  <template id="five-day-item-template">
+    <li class="five-day-item flex flex-col items-center text-center">
+      <strong class="five-day-name text-[25px] mb-2"></strong>
+      <time class="five-day-time text-slate-400"></time>
+      <span class="five-day-deg">min: <strong class="five-day-deg-min"></strong></span>
+      <span class="five-day-deg">max: <strong class="five-day-deg-max"></strong></span>
+      <img class="five-day-pic" src="" alt="">
+      <span class="five-day-condition text-slate-400"></span>
+    </li>
+  </template>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
